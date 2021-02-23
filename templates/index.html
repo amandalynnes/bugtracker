@@ -1,0 +1,80 @@
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+</head>
+
+<body>
+    <h1>{{ heading }}</h1>
+   
+    <p>
+        <!-- {% regroup tickets|dictsort:'ticket_status' by ticket_status.new as new_tickets %} -->
+        <h4>New</h4>
+        {% for item in tickets %}
+    
+            <p>Title: {{ item.title }}</p>
+            <p>When Filed: {{ item.dt_filed }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Filed by: {{ item.filed_by }}</p>
+            <p>Status: {{ item.ticket_status }}</p>
+            <p>Assigned To: {{ item.assigned_to }}</p>
+            <p>Completed By: {{ item.completed_by }}</p>
+            
+        {% endfor %}
+        <p>----------------------------------------------------------------------------</p>
+
+        <p></p>
+
+        {% regroup tickets|dictsort:'ticket_status' by ticket_status.done as done_tickets %}
+
+        {% regroup tickets by ticket_status.in_prograss as ip_tickets %}
+        <h4>Working On It...</h4>
+        {% for item in ip_tickets %}
+    
+            <p>Title: {{ item.title }}</p>
+            <p>When Filed: {{ item.dt_filed }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Filed by: {{ item.filed_by }}</p>
+            <p>Status: {{ item.ticket_status }}</p>
+            <p>Assigned To: {{ item.assigned_to }}</p>
+            <p>Completed By: {{ item.completed_by }}</p>
+            
+        {% endfor %}
+        <p>----------------------------------------------------------------------------</p>
+
+        <p></p>
+
+        {% regroup tickets|dictsort:'ticket_status' by ticket_status.done as done_tickets %}
+        <h4>Done-zo!</h4>
+        {% for item in done_tickets %}
+    
+            <p>Title: {{ item.title }}</p>
+            <p>When Filed: {{ item.dt_filed }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Filed by: {{ item.filed_by }}</p>
+            <p>Status: {{ item.ticket_status }}</p>
+            <p>Assigned To: {{ item.assigned_to }}</p>
+            <p>Completed By: {{ item.completed_by }}</p>
+            
+        {% endfor %}
+        <p>----------------------------------------------------------------------------</p>
+
+        <p></p>
+
+        {% regroup tickets|dictsort:'ticket_status' by ticket_status.invalid as invalid_tickets %}
+        <h4>:( Invalid</h4>
+        {% for item in invalid_tickets %}
+    
+            <p>Title: {{ item.title }}</p>
+            <p>When Filed: {{ item.dt_filed }}</p>
+            <p>Description: {{ item.description }}</p>
+            <p>Filed by: {{ item.filed_by }}</p>
+            <p>Status: {{ item.ticket_status }}</p>
+            <p>Assigned To: {{ item.assigned_to }}</p>
+            <p>Completed By: {{ item.completed_by }}</p>
+            
+        {% endfor %}
+
+        {{ tickets }}
+    </p>
+</body>

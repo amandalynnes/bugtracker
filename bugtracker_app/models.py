@@ -21,11 +21,7 @@ from django.contrib.auth.models import AbstractUser
 # User assigned to ticket: FK
 # User who completed the ticket: FK
 
-# TODO: add last two components of ticket model--> 
-    # 1. User assigned to ticket 
-    # 2.User who completed the ticket: FK
 
-# TODO: Make sure my database is set up/ working properly
 
 # TODO: start working on views.py
     # 1. create views
@@ -61,13 +57,13 @@ class TicketItem(models.Model):
     title = models.CharField(max_length=40)
     dt_filed = models.DateTimeField(default=now)
     description = models.TextField(max_length=150)
-    filed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE)
+    filed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="filed_by")
     ticket_status = models.CharField(
         max_length=2,
         choices=ticket_status_choices,
         default=new,
     )
-    # assigned_to = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE)
-    # completed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE)
+    assigned_to = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="assigned_to")
+    completed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="completed_by")
     def __str__(self):
         return self.title

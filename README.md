@@ -1,4 +1,5 @@
-<!-- Resources used:
+<!-- 
+Resources:
 
 https://learndjango.com/tutorials/django-custom-user-model
 
@@ -12,6 +13,11 @@ https://docs.djangoproject.com/en/3.1/ref/models/fields/
 
 https://stackoverflow.com/questions/17523263/how-to-create-password-field-in-model-django
 
+https://stackoverflow.com/questions/2606194/django-error-message-add-a-related-name-argument-to-the-definition
+
+
+People:
+Peter Marsh, 
  -->
 
 

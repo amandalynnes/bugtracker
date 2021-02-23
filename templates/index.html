@@ -7,11 +7,10 @@
 <body>
     <h1>{{ heading }}</h1>
    
-    <p>
-        <!-- {% regroup tickets|dictsort:'ticket_status' by ticket_status.new as new_tickets %} -->
+    <p></p>
         <h4>New</h4>
         {% for item in tickets %}
-        <p>----------------------------------------------------------------------------</p>
+        {% if item.ticket_status == 'NW' %}
 
             <p>Title: {{ item.title }}</p>
             <p>When Filed: {{ item.dt_filed }}</p>
@@ -20,61 +19,68 @@
             <p>Status: {{ item.ticket_status }}</p>
             <p>Assigned To: {{ item.assigned_to }}</p>
             <p>Completed By: {{ item.completed_by }}</p>
+            <p>----------------------------------------------------------------------------</p>
             
+            {% endif %}
         {% endfor %}
-        <p>----------------------------------------------------------------------------</p>
 
         <p></p>
 
-        {% regroup tickets|dictsort:'ticket_status' by ticket_status.done as done_tickets %}
-
-        {% regroup tickets by ticket_status.in_prograss as ip_tickets %}
-        <h4>Working On It...</h4>
-        {% for item in ip_tickets %}
+        <p>
+            <h4>Working On It...</h4>
+            {% for item in tickets %}
+            {% if item.ticket_status == 'IP' %}
     
-            <p>Title: {{ item.title }}</p>
-            <p>When Filed: {{ item.dt_filed }}</p>
-            <p>Description: {{ item.description }}</p>
-            <p>Filed by: {{ item.filed_by }}</p>
-            <p>Status: {{ item.ticket_status }}</p>
-            <p>Assigned To: {{ item.assigned_to }}</p>
-            <p>Completed By: {{ item.completed_by }}</p>
-            
-        {% endfor %}
-        <p>----------------------------------------------------------------------------</p>
-
-        <p></p>
-
-        {% regroup tickets|dictsort:'ticket_status' by ticket_status.done as done_tickets %}
-        <h4>Done-zo!</h4>
-        {% for item in done_tickets %}
+                <p>Title: {{ item.title }}</p>
+                <p>When Filed: {{ item.dt_filed }}</p>
+                <p>Description: {{ item.description }}</p>
+                <p>Filed by: {{ item.filed_by }}</p>
+                <p>Status: {{ item.ticket_status }}</p>
+                <p>Assigned To: {{ item.assigned_to }}</p>
+                <p>Completed By: {{ item.completed_by }}</p>
+                <p>----------------------------------------------------------------------------</p>
+                
+                {% endif %}
+            {% endfor %}
     
-            <p>Title: {{ item.title }}</p>
-            <p>When Filed: {{ item.dt_filed }}</p>
-            <p>Description: {{ item.description }}</p>
-            <p>Filed by: {{ item.filed_by }}</p>
-            <p>Status: {{ item.ticket_status }}</p>
-            <p>Assigned To: {{ item.assigned_to }}</p>
-            <p>Completed By: {{ item.completed_by }}</p>
+            <p></p>
+
+
+            <p>
+                <h4>Done-zo!</h4>
+                {% for item in tickets %}
+                {% if item.ticket_status == 'DN' %}
+        
+                    <p>Title: {{ item.title }}</p>
+                    <p>When Filed: {{ item.dt_filed }}</p>
+                    <p>Description: {{ item.description }}</p>
+                    <p>Filed by: {{ item.filed_by }}</p>
+                    <p>Status: {{ item.ticket_status }}</p>
+                    <p>Assigned To: {{ item.assigned_to }}</p>
+                    <p>Completed By: {{ item.completed_by }}</p>
+                    <p>----------------------------------------------------------------------------</p>
+                    
+                    {% endif %}
+                {% endfor %}
+        
+                <p></p>
+
+                    <h4>:( Invalid</h4>
+                    {% for item in tickets %}
+                    {% if item.ticket_status == 'IN' %}
             
-        {% endfor %}
-        <p>----------------------------------------------------------------------------</p>
-
-        <p></p>
-
-        {% regroup tickets|dictsort:'ticket_status' by ticket_status.invalid as invalid_tickets %}
-        <h4>:( Invalid</h4>
-        {% for item in invalid_tickets %}
-    
-            <p>Title: {{ item.title }}</p>
-            <p>When Filed: {{ item.dt_filed }}</p>
-            <p>Description: {{ item.description }}</p>
-            <p>Filed by: {{ item.filed_by }}</p>
-            <p>Status: {{ item.ticket_status }}</p>
-            <p>Assigned To: {{ item.assigned_to }}</p>
-            <p>Completed By: {{ item.completed_by }}</p>
+                        <p>Title: {{ item.title }}</p>
+                        <p>When Filed: {{ item.dt_filed }}</p>
+                        <p>Description: {{ item.description }}</p>
+                        <p>Filed by: {{ item.filed_by }}</p>
+                        <p>Status: {{ item.ticket_status }}</p>
+                        <p>Assigned To: {{ item.assigned_to }}</p>
+                        <p>Completed By: {{ item.completed_by }}</p>
+                        <p>----------------------------------------------------------------------------</p>
+                        
+                        {% endif %}
+                    {% endfor %}
             
-        {% endfor %}
+                    <p></p>
 
-    </p>
 </body>

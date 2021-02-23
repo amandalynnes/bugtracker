@@ -9,5 +9,5 @@ def index_view(request):
     tickets = TicketItem.objects.all().order_by('dt_filed').reverse()
 
     return render(request, 'index.html', {
-        'heading': 'Get Your Tickets Here, Get Your Tickets!',
+        'heading': 'Tickets, Get Your Tickets Here!',
         'tickets': tickets})

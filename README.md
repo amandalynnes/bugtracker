@@ -15,6 +15,11 @@ https://stackoverflow.com/questions/17523263/how-to-create-password-field-in-mod
 
 https://stackoverflow.com/questions/2606194/django-error-message-add-a-related-name-argument-to-the-definition
 
+https://openfolder.sh/grouping-in-django-templates
+
+https://docs.djangoproject.com/en/3.1/ref/templates/builtins/
+
+kite.com/python/docs/django.template.defaulttags.regroup
 
 People:
 Peter Marsh, 

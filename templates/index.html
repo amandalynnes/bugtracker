@@ -11,7 +11,8 @@
         <!-- {% regroup tickets|dictsort:'ticket_status' by ticket_status.new as new_tickets %} -->
         <h4>New</h4>
         {% for item in tickets %}
-    
+        <p>----------------------------------------------------------------------------</p>
+
             <p>Title: {{ item.title }}</p>
             <p>When Filed: {{ item.dt_filed }}</p>
             <p>Description: {{ item.description }}</p>

@@ -24,14 +24,14 @@ from django.contrib.auth.models import AbstractUser
 
 
 # TODO: start working on views.py
-    # 1. create views
-    # 2. hook up urls
+    # 1. create views - STARTED
+    # 2. hook up urls - STARTED
     # 3. get login page set up and working properly
     # 4. work on view to add new ticket
     # 5. work on view to make ticket in-progress
     # 6. work on view to make ticket done
     # 7. work on view to make ticket invalid
-    # 8. render all above information in index view seperated by status
+    # 8. render all above information in index view seperated by status - COMPLETE
 
 
 

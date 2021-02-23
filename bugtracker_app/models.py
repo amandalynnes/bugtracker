@@ -21,6 +21,25 @@ from django.contrib.auth.models import AbstractUser
 # User assigned to ticket: FK
 # User who completed the ticket: FK
 
+# TODO: add last two components of ticket model--> 
+    # 1. User assigned to ticket 
+    # 2.User who completed the ticket: FK
+
+# TODO: Make sure my database is set up/ working properly
+
+# TODO: start working on views.py
+    # 1. create views
+    # 2. hook up urls
+    # 3. get login page set up and working properly
+    # 4. work on view to add new ticket
+    # 5. work on view to make ticket in-progress
+    # 6. work on view to make ticket done
+    # 7. work on view to make ticket invalid
+    # 8. render all above information in index view seperated by status
+
+
+
+
 class CustomUser(AbstractUser):
     email = models.EmailField()
     password = models.CharField(max_length=40)

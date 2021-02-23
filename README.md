@@ -1,5 +1,16 @@
-<!-- Resources:
+<!-- Resources used:
+
 https://learndjango.com/tutorials/django-custom-user-model
+
+https://docs.djangoproject.com/en/3.0/ref/models/fields/#choices
+
+https://testdriven.io/blog/django-custom-user-model/
+
+https://learndjango.com/tutorials/django-custom-user-model
+
+https://docs.djangoproject.com/en/3.1/ref/models/fields/
+
+https://stackoverflow.com/questions/17523263/how-to-create-password-field-in-model-django
 
  -->
 

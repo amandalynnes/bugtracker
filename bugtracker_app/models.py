@@ -25,7 +25,7 @@ from django.conf import settings
 # TODO: start working on views.py
     # 1. create views - STARTED
     # 2. hook up urls - STARTED
-    # 3. get login page set up and working properly
+    # 3. get login page set up and working properly -COMPLETE
     # 4. work on view to add new ticket
     # 5. work on view to make ticket in-progress
     # 6. work on view to make ticket done
@@ -66,5 +66,6 @@ class TicketItem(models.Model):
     )
     assigned_to = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="assigned_to")
     completed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="completed_by")
+    
     def __str__(self):
         return self.title

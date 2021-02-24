@@ -9,77 +9,72 @@
    
     <p></p>
         <h4>New</h4>
+       <ul>
+
         {% for item in tickets %}
         {% if item.ticket_status == 'NW' %}
 
-            <p>Title: {{ item.title }}</p>
-            <p>When Filed: {{ item.dt_filed }}</p>
-            <p>Description: {{ item.description }}</p>
-            <p>Filed by: {{ item.filed_by }}</p>
-            <p>Status: {{ item.ticket_status }}</p>
-            <p>Assigned To: {{ item.assigned_to }}</p>
-            <p>Completed By: {{ item.completed_by }}</p>
+            <li><a href="/ticket/{{ item.id }}/">Title: {{ item.title }}</a></li>
+            <li>Filed by: {{ item.filed_by }}</li>
+            <li>Status: {{ item.ticket_status }}</li>
+            <li>Assigned To: {{ item.assigned_to }}</li>
             <p>----------------------------------------------------------------------------</p>
             
             {% endif %}
         {% endfor %}
 
+       </ul>
         <p></p>
-
-        <p>
             <h4>Working On It...</h4>
-            {% for item in tickets %}
-            {% if item.ticket_status == 'IP' %}
-    
-                <p>Title: {{ item.title }}</p>
-                <p>When Filed: {{ item.dt_filed }}</p>
-                <p>Description: {{ item.description }}</p>
-                <p>Filed by: {{ item.filed_by }}</p>
-                <p>Status: {{ item.ticket_status }}</p>
-                <p>Assigned To: {{ item.assigned_to }}</p>
-                <p>Completed By: {{ item.completed_by }}</p>
-                <p>----------------------------------------------------------------------------</p>
-                
-                {% endif %}
-            {% endfor %}
-    
-            <p></p>
-
-
-            <p>
-                <h4>Done-zo!</h4>
+            <ul>
                 {% for item in tickets %}
-                {% if item.ticket_status == 'DN' %}
+                {% if item.ticket_status == 'IP' %}
         
-                    <p>Title: {{ item.title }}</p>
-                    <p>When Filed: {{ item.dt_filed }}</p>
-                    <p>Description: {{ item.description }}</p>
-                    <p>Filed by: {{ item.filed_by }}</p>
-                    <p>Status: {{ item.ticket_status }}</p>
-                    <p>Assigned To: {{ item.assigned_to }}</p>
-                    <p>Completed By: {{ item.completed_by }}</p>
+                    <li><a href="/ticket/{{ item.id }}/">Title: {{ item.title }}</a></li>
+                    <li>Filed by: {{ item.filed_by }}</li>
+                    <li>Status: {{ item.ticket_status }}</li>
+                    <li>Assigned To: {{ item.assigned_to }}</li>
                     <p>----------------------------------------------------------------------------</p>
                     
                     {% endif %}
                 {% endfor %}
+            </ul>
+
+            <p></p>
+
+                <h4>Done-zo!</h4>
+                <ul>
+                    {% for item in tickets %}
+                {% if item.ticket_status == 'DN' %}
         
+                    <li><a href="/ticket/{{ item.id }}/">Title: {{ item.title }}</a></li>
+                    <li>Filed by: {{ item.filed_by }}</li>
+                    <li>Status: {{ item.ticket_status }}</li>
+                    <li>Assigned To: {{ item.assigned_to }}</li>
+                    <p>----------------------------------------------------------------------------</p>
+                    
+                    {% endif %}
+                {% endfor %}
+                </ul>
+    
                 <p></p>
 
                     <h4>:( Invalid</h4>
-                    {% for item in tickets %}
+                    <ul>
+
+                        {% for item in tickets %}
                     {% if item.ticket_status == 'IN' %}
             
-                        <p>Title: {{ item.title }}</p>
-                        <p>When Filed: {{ item.dt_filed }}</p>
-                        <p>Description: {{ item.description }}</p>
-                        <p>Filed by: {{ item.filed_by }}</p>
-                        <p>Status: {{ item.ticket_status }}</p>
-                        <p>Assigned To: {{ item.assigned_to }}</p>
-                        <p>Completed By: {{ item.completed_by }}</p>
+                        <li><a href="/ticket/{{ item.id }}/">Title: {{ item.title }}</a></li>
+                        <li>Filed by: {{ item.filed_by }}</li>
+                        <li>Status: {{ item.ticket_status }}</li>
+                        <li>Assigned To: {{ item.assigned_to }}</li>
                         <p>----------------------------------------------------------------------------</p>
                         
                         {% endif %}
                     {% endfor %}
+
+                    </ul>
             
                     <p></p>
 

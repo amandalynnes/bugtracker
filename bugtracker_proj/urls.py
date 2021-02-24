@@ -22,4 +22,6 @@ urlpatterns = [
     path('', views.index_view, name='home'),
     # path('accounts/login/', admin.site.urls),
     path('accounts/login/', views.login_view, name='login'),
+    path('addticket/', views.add_ticket, name='add_ticket'),
+    path('ticket/<int:ticket_id>/', views.ticket_view, name='ticket'),
 ]

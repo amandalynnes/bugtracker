@@ -48,15 +48,28 @@ def add_ticket(request):
             data = form.cleaned_data
             new_ticket = TicketItem.objects.create(
                title=data['title'],
-            #    author=request.user.author,
                description=data['description'],
                ticket_status=data['ticket_status']
             )
             return HttpResponseRedirect(reverse('ticket', args=[new_ticket.id]))
-
     form = TicketItemForm()
-    return render(
-        request,
-        "add_ticket.html",
-        {'form': form}
+    return render(request,
+    "add_ticket.html",
+    {'form': form}
     )
+
+# def author_detail(request, author_id):
+#     author_obj = Author.objects.get(id=author_id)
+#     recipes = RecipeItem.objects.filter(author=author_obj)
+
+#     return render(request, "author_detail.html", {
+#         "author": author_obj,
+#         "recipes": recipes
+#     })
+
+#     form = TicketItemForm()
+#     return render(
+#         request,
+#         "add_ticket.html",
+#         {'form': form}
+#     )

@@ -41,6 +41,7 @@ class CustomUser(AbstractUser):
     password = models.CharField(max_length=40)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
 
+
     def __str__(self):
         return self.username
 
@@ -66,6 +67,6 @@ class TicketItem(models.Model):
     )
     assigned_to = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="assigned_to")
     completed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="completed_by")
-    
+
     def __str__(self):
         return self.title

@@ -33,11 +33,8 @@ class TicketItemForm(forms.Form):
     ]
     title = forms.CharField(max_length=40)
     description = forms.CharField(max_length=150)
-    # filed_by = forms.ChoiceField(widget=forms.ChoiceField)
     ticket_status = forms.ChoiceField(
         choices=ticket_status_choices,
     )
-    # assigned_to = forms.CharField(widget=forms.ChoiceField)
-    # completed_by = forms.CharField(widget=forms.ChoiceField)
     
     

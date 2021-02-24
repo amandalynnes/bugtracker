@@ -21,6 +21,10 @@ https://docs.djangoproject.com/en/3.1/ref/templates/builtins/
 
 kite.com/python/docs/django.template.defaulttags.regroup
 
+https://stackoverflow.com/questions/20480177/what-more-do-i-need-to-do-to-have-djangos-login-required-decorator-work
+
+https://stackoverflow.com/questions/28626648/fields-e300-field-defines-a-relation-with-model-which-is-either-not-installed
+
 People:
 Peter Marsh, 
  -->

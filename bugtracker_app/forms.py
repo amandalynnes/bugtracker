@@ -32,7 +32,7 @@ class TicketItemForm(forms.Form):
         (invalid,'Invalid'),
     ]
     title = forms.CharField(max_length=40)
-    description = forms.CharField(max_length=150)
+    description = forms.CharField(widget=forms.Textarea, max_length=350)
     ticket_status = forms.ChoiceField(
         choices=ticket_status_choices,
     )

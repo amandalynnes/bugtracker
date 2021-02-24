@@ -58,7 +58,7 @@ class TicketItem(models.Model):
     ]
     title = models.CharField(max_length=40)
     dt_filed = models.DateTimeField(default=now)
-    description = models.TextField(max_length=150)
+    description = models.TextField(max_length=350)
     filed_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name="filed_by")
     ticket_status = models.CharField(
         max_length=2,

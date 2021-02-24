@@ -58,6 +58,39 @@ def add_ticket(request):
     {'form': form}
     )
 
+"""
+localhost:8000/edit/4
+"""
+
+def ticket_edit(request, ticket_id):
+
+    context = {}
+    editable = TicketItem.objects.get(id=ticket_id)
+
+    if request.method == 'POST':
+        form = TicketItemForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            editable.title = data['title']
+            editable.description = data['description']
+            editable.ticket_status = data['ticket_status']
+            editable.save()
+            return HttpResponseRedirect(reverse('ticket', args=[editable.id]))
+
+    form = TicketItemForm(
+        initial={'title': editable.title, 'description': editable.description, 'ticket_status': editable.ticket_status}
+    )
+    context.update({'form': form})
+    return render(
+        request,
+        'add_ticket.html',
+        context
+        )
+
+
+        
+
 # def author_detail(request, author_id):
 #     author_obj = Author.objects.get(id=author_id)
 #     recipes = RecipeItem.objects.filter(author=author_obj)

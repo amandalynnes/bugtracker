@@ -1,8 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.timezone import now
-from django.contrib.auth.models import AbstractUser
-
+from django.conf import settings
 
 # Create your models here.
 # Your Ticket model should have the following fields:
@@ -32,6 +31,7 @@ from django.contrib.auth.models import AbstractUser
     # 6. work on view to make ticket done
     # 7. work on view to make ticket invalid
     # 8. render all above information in index view seperated by status - COMPLETE
+    # 9. make editable form
 
 
 
@@ -39,6 +39,7 @@ from django.contrib.auth.models import AbstractUser
 class CustomUser(AbstractUser):
     email = models.EmailField()
     password = models.CharField(max_length=40)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.username

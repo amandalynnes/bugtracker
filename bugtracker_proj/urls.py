@@ -20,5 +20,6 @@ from bugtracker_app import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view, name='home'),
-    # path('login/', views.login, name='login'),
+    # path('accounts/login/', admin.site.urls),
+    path('accounts/login/', views.login_view, name='login'),
 ]

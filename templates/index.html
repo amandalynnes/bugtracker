@@ -19,7 +19,7 @@
         {% if item.ticket_status == 'NW' %}
 
             <li><a href="/ticket/{{ item.id }}/">Title: {{ item.title }}</a></li>
-            <li>Filed by: {{ item.filed_by }}</li>
+            <li><a href="/author/{{ item.filed_by.id }}/">Filed by: {{ item.filed_by }}</a></li>
             <li>Status: {{ item.ticket_status }}</li>
             <li>Assigned To: {{ item.assigned_to }}</li>
             <p>----------------------------------------------------------------------------</p>

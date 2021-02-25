@@ -23,15 +23,15 @@ from django.conf import settings
 
 
 # TODO: start working on views.py
-    # 1. create views - STARTED
-    # 2. hook up urls - STARTED
-    # 3. get login page set up and working properly -COMPLETE
-    # 4. work on view to add new ticket
+    # 1. create views - COMPLETE
+    # 2. hook up urls - COMPLETE
+    # 3. get login page set up and working properly - COMPLETE
+    # 4. work on view to add new ticket - COMPLETE
     # 5. work on view to make ticket in-progress
     # 6. work on view to make ticket done
     # 7. work on view to make ticket invalid
     # 8. render all above information in index view seperated by status - COMPLETE
-    # 9. make editable form
+    # 9. make editable form - COMPLETE
 
 
 

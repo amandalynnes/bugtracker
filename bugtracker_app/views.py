@@ -65,21 +65,21 @@ localhost:8000/edit/4
 def ticket_edit(request, ticket_id):
 
     context = {}
-    editable = TicketItem.objects.get(id=ticket_id)
+    ticket = TicketItem.objects.get(id=ticket_id)
 
     if request.method == 'POST':
         form = TicketItemForm(request.POST)
 
         if form.is_valid():
             data = form.cleaned_data
-            editable.title = data['title']
-            editable.description = data['description']
-            editable.ticket_status = data['ticket_status']
-            editable.save()
-            return HttpResponseRedirect(reverse('ticket', args=[editable.id]))
+            ticket.title = data['title']
+            ticket.description = data['description']
+            ticket.ticket_status = data['ticket_status']
+            ticket.save()
+            return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
 
     form = TicketItemForm(
-        initial={'title': editable.title, 'description': editable.description, 'ticket_status': editable.ticket_status}
+        initial={'title': ticket.title, 'description': ticket.description, 'ticket_status': ticket.ticket_status}
     )
     context.update({'form': form})
     return render(
@@ -90,15 +90,7 @@ def ticket_edit(request, ticket_id):
         
 
 def author_edit(request, author_id):
-    # author_obj = CustomUser.objects.get(id=author_id)
-
-    # form = CustomUserForm(initial=author_obj)
-    # return render(request, 'author_view.html', {
-    #     "author": author_obj,
-    #     'form': form})
-
-
-
+   
     context = {}
     author_obj = CustomUser.objects.get(id=author_id)
 

@@ -40,10 +40,11 @@ class CustomUser(AbstractUser):
     email = models.EmailField()
     password = models.CharField(max_length=40)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
-
+    
 
     def __str__(self):
         return self.username
+  
 
 class TicketItem(models.Model):
     new = 'NW'

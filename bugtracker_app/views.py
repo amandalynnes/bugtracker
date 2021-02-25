@@ -87,22 +87,28 @@ def ticket_edit(request, ticket_id):
         'add_ticket.html',
         context
         )
-
-
         
 
-# def author_detail(request, author_id):
-#     author_obj = Author.objects.get(id=author_id)
-#     recipes = RecipeItem.objects.filter(author=author_obj)
+def author_edit(request, author_id):
+    author_obj = CustomUser.objects.filter(id=author_id)[0].user
 
-#     return render(request, "author_detail.html", {
-#         "author": author_obj,
-#         "recipes": recipes
-#     })
 
-#     form = TicketItemForm()
-#     return render(
-#         request,
-#         "add_ticket.html",
-#         {'form': form}
-#     )
+
+    form = CustomUserForm(initial=author_obj)
+    return render(request, 'author_view.html', {'form': form})
+
+
+    # user_obj = CustomUser.objects.get(id=user_id)
+    # tickets = TicketItem.objects.filter(user=user_obj)
+
+    # return render(request, "user_view.html", {
+    #     "user": user_obj,
+    #     "tickets": tickets
+    # })
+
+    # form = CustomUserForm()
+    # return render(
+    #     request,
+    #     "user_view.html",
+    #     {'form': form}
+    # )

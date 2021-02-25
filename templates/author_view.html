@@ -12,7 +12,9 @@
 
         <p></p>
         
-        <h4>Author: {{ author }}</h4>
+        <h3>Author: {{ author }}</h3>
+        <h4>Tickets You Own:</h4>
+        <p>----------------------------------------------------------------------------</p>
 
             {% for ticket in tickets %}
             <p>Title: {{ ticket.title }}</p>
@@ -20,6 +22,8 @@
             <p>Description: {{ ticket.description }}</p>
             <p>Filed by: {{ ticket.filed_by }}</p>
             <p>Status: {{ ticket.ticket_status }}</p>
+            <p>----------------------------------------------------------------------------</p>
+
             {% endfor %}
 
 

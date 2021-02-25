@@ -25,5 +25,7 @@ urlpatterns = [
     path('ticket/<int:ticket_id>/', views.ticket_view, name='ticket'),
     path('ticket/edit/<int:ticket_id>/', views.ticket_edit, name='edit_ticket'),
     path('author/edit/<int:author_id>/', views.author_edit, name='edit_author'),
+    path('author/<int:author_id>/', views.author_view, name='author_view'),
+
 
 ]

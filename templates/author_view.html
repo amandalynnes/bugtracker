@@ -5,21 +5,35 @@
 </head>
 
 <body>
-    <p>
-        
-    </p>
     
         <h1>{{ heading }}</h1>
         <p></p>
         <a href="/">|Go Home|</a>
 
+        <p></p>
+        
+        <h4>Author: {{ author }}</h4>
+
+            {% for ticket in tickets %}
+            <p>Title: {{ ticket.title }}</p>
+            <p>When Filed: {{ ticket.dt_filed }}</p>
+            <p>Description: {{ ticket.description }}</p>
+            <p>Filed by: {{ ticket.filed_by }}</p>
+            <p>Status: {{ ticket.ticket_status }}</p>
+            {% endfor %}
 
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit!">
-    </form>
+        <p></p>
+
+    {% if form %}
+    
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit!">
+        </form>
+    {% endif %}
+    
 
     
 </body>

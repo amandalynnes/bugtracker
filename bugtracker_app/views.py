@@ -90,25 +90,48 @@ def ticket_edit(request, ticket_id):
         
 
 def author_edit(request, author_id):
-    author_obj = CustomUser.objects.filter(id=author_id)[0].user
+    # author_obj = CustomUser.objects.get(id=author_id)
+
+    # form = CustomUserForm(initial=author_obj)
+    # return render(request, 'author_view.html', {
+    #     "author": author_obj,
+    #     'form': form})
 
 
 
-    form = CustomUserForm(initial=author_obj)
-    return render(request, 'author_view.html', {'form': form})
+    context = {}
+    author_obj = CustomUser.objects.get(id=author_id)
+
+    if request.method == 'POST':
+        form = CustomUserForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            author_obj.username = data['username']
+            author_obj.email = data['email']
+            author_obj.save()
+            return HttpResponseRedirect(reverse('author', args=[author_obj.id]))
+
+    form = CustomUserForm(
+        initial={'username': author_obj.username, 'email': author_obj.email}
+    )
+    context.update({
+        "author": author_obj,
+        'form': form})
+    return render(
+        request,
+        'author_view.html',
+        context
+        )
 
 
-    # user_obj = CustomUser.objects.get(id=user_id)
-    # tickets = TicketItem.objects.filter(user=user_obj)
 
-    # return render(request, "user_view.html", {
-    #     "user": user_obj,
-    #     "tickets": tickets
-    # })
+def author_view(request, author_id):
 
-    # form = CustomUserForm()
-    # return render(
-    #     request,
-    #     "user_view.html",
-    #     {'form': form}
-    # )
+    author_obj = CustomUser.objects.get(id=author_id)
+    tickets = TicketItem.objects.filter(filed_by=author_obj)
+
+    return render(request, "author_view.html", {
+        "author": author_obj,
+        "tickets": tickets
+    })

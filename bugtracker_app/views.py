@@ -127,3 +127,13 @@ def author_view(request, author_id):
         "author": author_obj,
         "tickets": tickets
     })
+
+
+
+def new_ticket(request, ticket_id, author_id):
+    ticket = TicketItem.objects.filter(id=ticket_id).first()
+    ticket.ticket_status = New
+    ticket.assigned_to = None
+    ticket.completed_by = None
+    ticket.filed_by = CustomUser
+    ticket.save()

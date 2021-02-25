@@ -67,13 +67,13 @@
                     <h4>:( Invalid</h4>
                     <ul>
 
-                        {% for item in tickets %}
-                    {% if item.ticket_status == 'IN' %}
+                    {% for item in tickets %}
+                        {% if item.ticket_status == 'IN' %}
             
                         <li>Title: <a href="/ticket/{{ item.id }}/"> {{ item.title }}</a></li>
                         <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
                         <li>Status: {{ item.ticket_status }}</li>
-                        <li>Assigned To: {{ item.assigned_to }}</li>
+                        <li>Assigned To: {{ item.filed_by }}</li>
                         <p>----------------------------------------------------------------------------</p>
                         
                         {% endif %}

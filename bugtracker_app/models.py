@@ -8,7 +8,7 @@ from django.conf import settings
 
 class CustomUser(AbstractUser):
     email = models.EmailField()
-    password = models.CharField(max_length=40)
+    password = models.CharField(max_length=100)
     user = models.OneToOneField(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)
     
 

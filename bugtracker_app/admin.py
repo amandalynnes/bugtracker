@@ -5,17 +5,19 @@ from .forms import CustomUserForm
 
 # Register your models here.
 
-class CustomUserAdmin(UserAdmin):
-    add_form = CustomUserForm
-    form = CustomUserForm
-    model = CustomUser
-    list_filter = ['username', 'email',]
-    fieldsets = (
-        [None, {'fields': ('email', 'username', 'password')}],
-    )
-    add_fieldsets = (
-        [None, {'fields': ('email', 'username', 'password')}],
-    )
+# class CustomUserAdmin(UserAdmin):
+#     add_form = CustomUserForm
+#     form = CustomUserForm
+#     model = CustomUser
+#     list_filter = ['username', 'email',]
+#     fieldsets = (
+#         [None, {'fields': ('email', 'username', 'password')}],
+#     )
+#     add_fieldsets = (
+#         [None, {'fields': ('email', 'username', 'password')}],
+#     )
 
-admin.site.register(CustomUser, CustomUserAdmin)
+# admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(CustomUser, UserAdmin)
+
 admin.site.register(TicketItem)

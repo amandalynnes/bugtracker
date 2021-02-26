@@ -21,13 +21,15 @@
                 <li>Title: {{ ticket.title }}</li>
                 <li>When Filed: {{ ticket.dt_filed }}</li>
                 <li>Description: {{ ticket.description }}</li>
-                <li>Filed by: {{ ticket.filed_by }}</li>
                 <li>Assigned to: {{ ticket.assigned_to }}</li>
+                <li>Filed by: {{ ticket.filed_by }}</li>
                 <li>Completed by: {{ ticket.completed_by }}</li>
                 <li>Status: {{ ticket.ticket_status }}</li>
                 <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
 
                 <p>----------------------------------------------------------------------------</p>
+                {% else%}
+                    <p><em>None yet</em></p>
             {% endif %}
             {% endfor %}
 
@@ -49,7 +51,9 @@
                 <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
 
                 <p>----------------------------------------------------------------------------</p>
-            {% endif %}
+                {% else%}
+                    <p><em>None yet</em></p>
+                {% endif %}
             {% endfor %}
 
         </ul>
@@ -63,14 +67,16 @@
                 <li>Title: {{ ticket.title }}</li>
                 <li>When Filed: {{ ticket.dt_filed }}</li>
                 <li>Description: {{ ticket.description }}</li>
+                <li>Completed by: {{ ticket.completed_by }}</li>
                 <li>Filed by: {{ ticket.filed_by }}</li>
                 <li>Assigned to: {{ ticket.assigned_to }}</li>
-                <li>Completed by: {{ ticket.completed_by }}</li>
                 <li>Status: {{ ticket.ticket_status }}</li>
                 <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
 
                 <p>----------------------------------------------------------------------------</p>
-            {% endif %}
+                {% else%}
+                    <p><em>None yet</em></p>
+                {% endif %}
             {% endfor %}
 
         </ul>

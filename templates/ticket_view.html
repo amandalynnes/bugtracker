@@ -21,7 +21,12 @@
             <p>Status: {{ ticket.ticket_status }}</p>
             <p>Assigned To: {{ ticket.assigned_to }}</p>
             <p>Completed By: {{ ticket.completed_by }}</p>
-            <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
+            <a href="/ticket/edit/{{ ticket.id }}/">|Edit Ticket|</a>
+            <a href="/newticket/{{ ticket.id }}/">|Mark New|</a>
+            <a href="/doneticket/{{ ticket.id }}/">|Mark Done|</a>
+            <a href="/ipticket/{{ ticket.id }}/">|Mark In-Progress|</a>
+            <a href="/inticket/{{ ticket.id }}/">|Mark Invalid|</a>
+
             <p>----------------------------------------------------------------------------</p>
             
         

@@ -20,9 +20,10 @@
         {% if item.ticket_status == 'NW' %}
 
             <li>Title: <a href="/ticket/{{ item.id }}/"> {{ item.title }}</a></li>
-            <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
             <li>Status: {{ item.ticket_status }}</li>
             <li>Assigned To: {{ item.assigned_to }}</li>
+            <li>Completed by: {{ item.completed_by }}</li>
+            <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
             <p>----------------------------------------------------------------------------</p>
             
             {% endif %}
@@ -36,9 +37,11 @@
                 {% if item.ticket_status == 'IP' %}
         
                     <li>Title: <a href="/ticket/{{ item.id }}/"> {{ item.title }}</a></li>
-                    <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
                     <li>Status: {{ item.ticket_status }}</li>
                     <li>Assigned To: {{ item.assigned_to }}</li>
+                    <li>Completed by: {{ item.completed_by }}</li>
+                    <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
+
                     <p>----------------------------------------------------------------------------</p>
                     
                     {% endif %}
@@ -53,9 +56,11 @@
                 {% if item.ticket_status == 'DN' %}
         
                     <li>Title: <a href="/ticket/{{ item.id }}/"> {{ item.title }}</a></li>
-                    <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
                     <li>Status: {{ item.ticket_status }}</li>
                     <li>Assigned To: {{ item.assigned_to }}</li>
+                    <li>Completed by: {{ item.completed_by }}</li>
+                    <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
+
                     <p>----------------------------------------------------------------------------</p>
                     
                     {% endif %}
@@ -71,9 +76,10 @@
                         {% if item.ticket_status == 'IN' %}
             
                         <li>Title: <a href="/ticket/{{ item.id }}/"> {{ item.title }}</a></li>
-                        <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
                         <li>Status: {{ item.ticket_status }}</li>
                         <li>Assigned To: {{ item.filed_by }}</li>
+                        <li>Completed by: {{ item.completed_by }}</li>
+                        <li>Filed by: <a href="/author/{{ item.filed_by.id }}/"> {{ item.filed_by }}</a></li>
                         <p>----------------------------------------------------------------------------</p>
                         
                         {% endif %}

@@ -6,7 +6,6 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-# user detail sorting
 
 @login_required(login_url='/accounts/login/')
 def index_view(request):
@@ -132,9 +131,7 @@ def author_view(request, author_id):
 
 def new_ticket(request, ticket_id):
     ticket = TicketItem.objects.filter(id=ticket_id).first()
-    ticket.title = data['title']
-    ticket.description = data['description']
-    ticket.ticket_status = New
+    ticket.ticket_status = 'NW'
     ticket.assigned_to = None
     ticket.completed_by = None
     ticket.filed_by = request.user

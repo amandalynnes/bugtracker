@@ -13,23 +13,67 @@
         <p></p>
         
         <h3>Author: {{ author }}</h3>
-        <h4>Tickets You Own:</h4>
         <p>----------------------------------------------------------------------------</p>
-
+        <ul>
+            <h5>Tickets Assigned To You:</h5>
             {% for ticket in tickets %}
-            <p>Title: {{ ticket.title }}</p>
-            <p>When Filed: {{ ticket.dt_filed }}</p>
-            <p>Description: {{ ticket.description }}</p>
-            <p>Filed by: {{ ticket.filed_by }}</p>
-            <p>Status: {{ ticket.ticket_status }}</p>
-            <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
+            {% if ticket.assigned_to == author %}
+                <li>Title: {{ ticket.title }}</li>
+                <li>When Filed: {{ ticket.dt_filed }}</li>
+                <li>Description: {{ ticket.description }}</li>
+                <li>Filed by: {{ ticket.filed_by }}</li>
+                <li>Assigned to: {{ ticket.assigned_to }}</li>
+                <li>Completed by: {{ ticket.completed_by }}</li>
+                <li>Status: {{ ticket.ticket_status }}</li>
+                <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
 
-            <p>----------------------------------------------------------------------------</p>
-
+                <p>----------------------------------------------------------------------------</p>
+            {% endif %}
             {% endfor %}
 
+        </ul>
+            
+        <p></p>
+
+        <ul>
+            <h5>Tickets Filed By You:</h5>
+            {% for ticket in tickets %}
+            {% if ticket.filed_by == author %}
+                <li>Title: {{ ticket.title }}</li>
+                <li>When Filed: {{ ticket.dt_filed }}</li>
+                <li>Description: {{ ticket.description }}</li>
+                <li>Filed by: {{ ticket.filed_by }}</li>
+                <li>Assigned to: {{ ticket.assigned_to }}</li>
+                <li>Completed by: {{ ticket.completed_by }}</li>
+                <li>Status: {{ ticket.ticket_status }}</li>
+                <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
+
+                <p>----------------------------------------------------------------------------</p>
+            {% endif %}
+            {% endfor %}
+
+        </ul>
 
         <p></p>
+
+        <ul>
+            <h5>Tickets Completed By You:</h5>
+            {% for ticket in tickets %}
+            {% if ticket.completed_by == author %}
+                <li>Title: {{ ticket.title }}</li>
+                <li>When Filed: {{ ticket.dt_filed }}</li>
+                <li>Description: {{ ticket.description }}</li>
+                <li>Filed by: {{ ticket.filed_by }}</li>
+                <li>Assigned to: {{ ticket.assigned_to }}</li>
+                <li>Completed by: {{ ticket.completed_by }}</li>
+                <li>Status: {{ ticket.ticket_status }}</li>
+                <a href="/ticket/edit/{{ ticket.id }}/">Edit Ticket</a>
+
+                <p>----------------------------------------------------------------------------</p>
+            {% endif %}
+            {% endfor %}
+
+        </ul>
 
     {% if form %}
     

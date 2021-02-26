@@ -26,6 +26,9 @@ urlpatterns = [
     path('ticket/edit/<int:ticket_id>/', views.ticket_edit, name='edit_ticket'),
     path('author/edit/<int:author_id>/', views.author_edit, name='edit_author'),
     path('author/<int:author_id>/', views.author_view, name='author_view'),
-
+    path('newticket/<int:ticket_id/', views.new_ticket, name= 'new'),
+    path('doneticket/<int:ticket_id>/', views.dn_ticket, name= 'done'),
+    path('ipticket/<int:ticket_id>/', views.ip_ticket, name= 'in_progress'),
+    path('inticket/<int:ticket_id>/', views.in_ticket, name= 'invalid'),
 
 ]

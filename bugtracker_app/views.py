@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+# user detail sorting
 
 @login_required(login_url='/accounts/login/')
 def index_view(request):
@@ -49,7 +50,8 @@ def add_ticket(request):
             new_ticket = TicketItem.objects.create(
                title=data['title'],
                description=data['description'],
-               ticket_status=data['ticket_status']
+            #    ticket_status=data['ticket_status'],
+               filed_by=request.user
             )
             return HttpResponseRedirect(reverse('ticket', args=[new_ticket.id]))
     form = TicketItemForm()
@@ -74,7 +76,6 @@ def ticket_edit(request, ticket_id):
             data = form.cleaned_data
             ticket.title = data['title']
             ticket.description = data['description']
-            ticket.ticket_status = data['ticket_status']
             ticket.save()
             return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
 
@@ -129,11 +130,44 @@ def author_view(request, author_id):
     })
 
 
-
-def new_ticket(request, ticket_id, author_id):
+def new_ticket(request, ticket_id):
     ticket = TicketItem.objects.filter(id=ticket_id).first()
+    ticket.title = data['title']
+    ticket.description = data['description']
     ticket.ticket_status = New
     ticket.assigned_to = None
     ticket.completed_by = None
-    ticket.filed_by = CustomUser
+    ticket.filed_by = request.user
     ticket.save()
+    return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
+
+
+
+def ip_ticket(request, ticket_id):
+    ticket = TicketItem.objects.filter(id=ticket_id).first()
+    ticket.ticket_status = 'IP'
+    ticket.assigned_to = request.user
+    ticket.completed_by = None
+    ticket.save()
+    return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
+
+
+
+def dn_ticket(request, ticket_id):
+    ticket = TicketItem.objects.filter(id=ticket_id).first()
+    ticket.ticket_status = 'DN'
+    ticket.completed_by = ticket.assigned_to
+    ticket.assigned_to = None
+    ticket.save()
+    return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
+
+
+
+def in_ticket(request, ticket_id):
+    ticket = TicketItem.objects.filter(id=ticket_id).first()
+    ticket.ticket_status = 'IN'
+    ticket.assigned_to = None
+    ticket.completed_by = None
+    ticket.save()
+    return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
+

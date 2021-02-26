@@ -19,7 +19,7 @@ https://openfolder.sh/grouping-in-django-templates
 
 https://docs.djangoproject.com/en/3.1/ref/templates/builtins/
 
-kite.com/python/docs/django.template.defaulttags.regroup
+https://kite.com/python/docs/django.template.defaulttags.regroup
 
 https://stackoverflow.com/questions/20480177/what-more-do-i-need-to-do-to-have-djangos-login-required-decorator-work
 

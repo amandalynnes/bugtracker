@@ -25,16 +25,8 @@ class TicketItemForm(forms.Form):
     done = 'DN'
     in_prograss = 'IP'
     invalid = 'IN'
-    # ticket_status_choices = [
-    #     (new,'New'),
-    #     (done,'Done'),
-    #     (in_prograss, 'In_Prograss'),
-    #     (invalid,'Invalid'),
-    # ]
     title = forms.CharField(max_length=40)
     description = forms.CharField(widget=forms.Textarea, max_length=350)
-    # ticket_status = forms.ChoiceField(
-    #     choices=ticket_status_choices,
-    # )
+    
     
     

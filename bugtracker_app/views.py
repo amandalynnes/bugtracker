@@ -49,7 +49,6 @@ def add_ticket(request):
             new_ticket = TicketItem.objects.create(
                title=data['title'],
                description=data['description'],
-            #    ticket_status=data['ticket_status'],
                filed_by=request.user
             )
             return HttpResponseRedirect(reverse('ticket', args=[new_ticket.id]))
@@ -117,7 +116,6 @@ def author_edit(request, author_id):
         )
 
 
-
 def author_view(request, author_id):
 
     author_obj = CustomUser.objects.get(id=author_id)
@@ -139,7 +137,6 @@ def new_ticket(request, ticket_id):
     return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
 
 
-
 def ip_ticket(request, ticket_id):
     ticket = TicketItem.objects.filter(id=ticket_id).first()
     ticket.ticket_status = 'IP'
@@ -149,7 +146,6 @@ def ip_ticket(request, ticket_id):
     return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
 
 
-
 def dn_ticket(request, ticket_id):
     ticket = TicketItem.objects.filter(id=ticket_id).first()
     ticket.ticket_status = 'DN'
@@ -157,7 +153,6 @@ def dn_ticket(request, ticket_id):
     ticket.assigned_to = None
     ticket.save()
     return HttpResponseRedirect(reverse('ticket', args=[ticket.id]))
-
 
 
 def in_ticket(request, ticket_id):

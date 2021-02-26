@@ -4,36 +4,6 @@ from django.utils.timezone import now
 from django.conf import settings
 
 # Create your models here.
-# Your Ticket model should have the following fields:
-
-# Title: str
-# Time / Date filed: datetime
-# Description: str
-# User who filed ticket: FK (Foreign Key)
-# Status of ticket: str
-# Possible statuses
-# New
-# In Progress
-# Done
-# Invalid
-# hint: https://docs.djangoproject.com/en/3.0/ref/models/fields/#choices
-# User assigned to ticket: FK
-# User who completed the ticket: FK
-
-
-
-# TODO: start working on views.py
-    # 1. create views - COMPLETE
-    # 2. hook up urls - COMPLETE
-    # 3. get login page set up and working properly - COMPLETE
-    # 4. work on view to add new ticket - COMPLETE
-    # 5. work on view to make ticket in-progress
-    # 6. work on view to make ticket done
-    # 7. work on view to make ticket invalid
-    # 8. render all above information in index view seperated by status - COMPLETE
-    # 9. make editable form - COMPLETE
-
-
 
 
 class CustomUser(AbstractUser):
